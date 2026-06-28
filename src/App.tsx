@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { SocketProvider } from './contexts/SocketContext';
 import Layout from './components/Layout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import JobDetail from './pages/JobDetail';
 import Earnings from './pages/Earnings';
+import ChangePassword from './pages/ChangePassword';
 
 const ProtectedLayout = () => {
   const { vendor, loading } = useAuth();
@@ -24,18 +26,21 @@ const ProtectedLayout = () => {
 
 const App = () => (
   <AuthProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route element={<ProtectedLayout />}>
-          <Route index element={<Navigate to="/jobs" replace />} />
-          <Route path="/jobs"     element={<Dashboard />} />
-          <Route path="/jobs/:id" element={<JobDetail />} />
-          <Route path="/earnings" element={<Earnings />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/jobs" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <SocketProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedLayout />}>
+            <Route index element={<Navigate to="/jobs" replace />} />
+            <Route path="/jobs"            element={<Dashboard />} />
+            <Route path="/jobs/:id"        element={<JobDetail />} />
+            <Route path="/earnings"        element={<Earnings />} />
+            <Route path="/change-password" element={<ChangePassword />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/jobs" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </SocketProvider>
   </AuthProvider>
 );
 
