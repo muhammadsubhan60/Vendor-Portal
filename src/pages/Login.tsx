@@ -52,8 +52,8 @@ const Login: React.FC = () => {
               <rect x="14" y="14" width="7" height="7" rx="1" />
             </svg>
           </div>
-          <h1 className="text-xl font-bold text-white tracking-tight">FillOps</h1>
-          <p className="text-slate-500 text-sm mt-1">Fulfillment Operations Portal</p>
+          <h1 className="text-xl font-bold text-white tracking-tight">BatchOps</h1>
+          <p className="text-slate-500 text-sm mt-1">Batch Fulfillment Operations</p>
         </div>
 
         {/* Card */}

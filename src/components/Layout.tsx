@@ -26,7 +26,7 @@ const LogoutIcon = () => (
   </svg>
 );
 
-const FillOpsLogo = () => (
+const BatchOpsLogo = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
     <rect x="3" y="3" width="7" height="7" rx="1" />
     <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -57,10 +57,10 @@ const Layout: React.FC = () => {
         {/* Brand */}
         <div className="px-5 py-4 border-b border-white/[0.06] flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shrink-0">
-            <FillOpsLogo />
+            <BatchOpsLogo />
           </div>
           <div>
-            <div className="text-sm font-bold text-slate-100 leading-tight">FillOps</div>
+            <div className="text-sm font-bold text-slate-100 leading-tight">BatchOps</div>
             <div className="text-[10px] text-slate-500 uppercase tracking-wider">Vendor Portal</div>
           </div>
         </div>
